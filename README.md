@@ -58,25 +58,24 @@ Para levantar el servidor de desarrollo con hot-reload:
 ## Estructura del Proyecto
 
 src
-    /components
-        /Products
-            ProducTarjet.vue
-            ProductGrid.vue
-            Pagination.vue
-        /tablero
-            FiltersBar.vue
-            Stats.vue
-        /UI
-            Loader.vue
-            ErrorMessage.vue
-            mmodal.vue
-        /store
-            Products.js
-        /aditionals
-            ChangeCurrency.js
-        /router
-            index.js
-    App.vue
-    main.js
-
+/components
+/Products
+ProductTarjet.vue
+ProductGrid.vue
+Pagination.vue
+/tablero
+FiltersBar.vue
+Stats.vue
+/UI
+Loader.vue
+ErrorMessage.vue
+mmodal.vue
+/store
+Products.js
+/aditionals
+ChangeCurrency.js
+/router
+index.js
+App.vue
+main.js
     ¡Gracias por usar este proyecto! dudas, preguntas o puntos oscuros contacta conmigo estaré atento.
