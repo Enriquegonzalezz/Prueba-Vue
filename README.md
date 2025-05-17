@@ -1,4 +1,4 @@
-# Nombre del Proyecto
+# Tablero retail
 
 Es un tablero de control para retail donde incluye listado de productos con paginación, filtros por categoría y precio y las estadísticas básicas
 de los productos.
