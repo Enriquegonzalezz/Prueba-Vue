@@ -1,3 +1,5 @@
+
+<!--loader de la api-->
 <template>
   <div class="flex-col gap-4 w-full flex items-center justify-center">
     <div

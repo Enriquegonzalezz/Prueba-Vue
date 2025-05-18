@@ -1,3 +1,5 @@
+
+//consuminedo las APIs
 import { defineStore } from 'pinia';
 import axios from 'axios';
 

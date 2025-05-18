@@ -35,16 +35,18 @@ const FILTERS_STORAGE_KEY = 'app-filters'
 const currentPage = ref(1)
 const itemsPerPage = 5
 
-// Computed properties
+//Propiedades computadas
 const uniqueCategories = computed(() => store.categorias || [])
 const loading = computed(() => store.loading || currencyLoading.value)
+
 const error = computed(() => store.error || currencyError.value)
+
 const maxPriceLimit = computed(() => {
   if (!store.products?.length) return 1000
   return Math.max(...store.products.map(p => p.price))
 })
 
-// Productos filtrados (actualización automática)
+// Productos filtrados (con su actualización automática)
 const filteredProducts = computed(() => {
   if (!store.products?.length) return []
   
@@ -56,13 +58,13 @@ const filteredProducts = computed(() => {
   })
 })
 
-// Productos paginados
+//Productos paginados
 const paginatedProducts = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   return filteredProducts.value.slice(start, start + itemsPerPage)
 })
 
-// Estadísticas
+//Estadísticas
 const statsData = computed(() => ({
   totalProducts: filteredProducts.value.length,
   uniqueCategories: uniqueCategories.value.length,
@@ -75,7 +77,7 @@ const statsData = computed(() => ({
     : formatCurrency(0, { currency: 'USD' })
 }))
 
-// Métodos
+//Métodos
 function handlePageChange(page) {
   currentPage.value = page
 }
@@ -91,7 +93,7 @@ function applyFilters() {
   console.log('Filtros aplicados:', filters.value)
 }
 
-// Hooks
+//Hook
 onMounted(() => {
   store.getProducts()
 
@@ -104,21 +106,21 @@ onMounted(() => {
     }
   }
   
-  // Si la URL tiene categoría, sincronizar filtro
+  //Si la URL tiene alguna de las 4 categorías, sincronizar filtro
   if (route.params.category) {
     filters.value.category = route.params.category
   }
 })
 
 
-// Guardar filtros en localStorage cuando cambian
+//Guardar filtros en localStorage cuando cambien
 watch(filters, (newFilters) => {
   localStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(newFilters))
 }, { deep: true })
 
 
 
-// Vigilar cambios en la ruta para actualizar filtro categoría
+//Vigilar cambios en la ruta para actualizar filtro categoría
 watch(
   () => route.params.category,
   (newCategory) => {
@@ -130,7 +132,7 @@ watch(
   }
 )
 
-// Vigilar cambios en filtros para resetear página y actualizar productos
+//Vigilar cambios en filtros para resetear página y actualizar productos
 watch(
   () => filters.value,
   () => {
@@ -150,7 +152,7 @@ watch(
       </div>
     </header>
 
-    <!-- Cuerpo: Listado de productos -->
+    <!-- Content: Listado de productos -->
     <main class="flex-1 container mx-auto px-4 py-8 ">
       <Loader v-if="loading" />
       <ErrorMessage v-else-if="error" :message="error" />

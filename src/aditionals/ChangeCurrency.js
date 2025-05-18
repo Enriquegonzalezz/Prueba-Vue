@@ -1,4 +1,4 @@
-
+//Manejo de la tasa de cambio y formateo de monedas
 import { computed } from 'vue'
 import { useProductsStore } from '../store/Products'
 

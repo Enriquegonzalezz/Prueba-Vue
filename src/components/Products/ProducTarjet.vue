@@ -1,3 +1,5 @@
+
+<!-- ProducTarjet con imagenes con carga diferida-->
 <script setup>
 import useCurrency from '../../aditionals/ChangeCurrency'
 
